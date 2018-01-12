@@ -8,7 +8,7 @@ import AppBar from 'material-ui/AppBar';
 class App extends Component {
   addNewIdea = () => {
     axios.post(
-      'http://localhost:3000/api/v1/ideas',
+      'http://localhost:8000/api/v1/ideas',
       { idea:
         {
           title: '',

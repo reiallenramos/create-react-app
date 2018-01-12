@@ -14,7 +14,7 @@ class IdeasContainer extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:3000/api/v1/ideas.json')
+    axios.get('http://localhost:8000/api/v1/ideas.json')
     .then(response => {
       console.log(response)
       this.setState({ideas: response.data})
