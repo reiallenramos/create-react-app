@@ -1,19 +1,35 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import axios from 'axios'
+import IdeasContainer from './components/IdeasContainer.js'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'; 
+import AppBar from 'material-ui/AppBar';
 
 class App extends Component {
+  addNewIdea = () => {
+    axios.post(
+      'http://localhost:3000/api/v1/ideas',
+      { idea:
+        {
+          title: '',
+          body: ''
+        }
+      }
+    )
+    .then(response => {
+      console.log(response)
+    })
+    .catch(error => console.log(error))
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <MuiThemeProvider>
+        <div className="App">
+          <AppBar title="Ideaboard"></AppBar>
+          <IdeasContainer className="IdeasContainer" />
+        </div>
+      </MuiThemeProvider>
     );
   }
 }

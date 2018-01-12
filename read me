@@ -1,0 +1,17 @@
+**make sure to port 3000 is unused
+--
+
+navigate to ideaboard/ideaboard-api
+run both servers using
+> foreman start
+
+--
+**editing server ports:
+frontend:
+1. "start": "PORT=3001 react-scripts start" (sometimes it doesnt work, so stick with 3001)
+
+backend:
+1. change in Procfile:
+rails s -p 3000
+2. in ideaboard/ideaboard
+find all axios calls and change this line -> http://localhost:3000/api/v1/ideas
